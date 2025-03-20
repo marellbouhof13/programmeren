@@ -25,10 +25,6 @@ function eersteStap() {
 }
 
 
-if (stap1) {
-    stap1.addEventListener("click", eersteStap);
-}
-
 function tweedeStap() {
     if(counter == 1){
         img.src ="img/bakvorm.png"
@@ -42,38 +38,32 @@ function tweedeStap() {
     }
 }
 
-if (stap2) {
-    stap2.addEventListener("click", tweedeStap);
-}
 
 let afbeeldingen = ["img/koek1.png", "img/koek2.png", "img/koek3.png"]
 let index = 0
 
 function derdeStap(){
     if(counter == 2){
-    audio.play()
-        function veranderAfbeelding() {
-            if (index < afbeeldingen.length) { //bron: behulp van chatGPT
-                img.src = afbeeldingen[index]
-                index = index + 1
-                setTimeout(veranderAfbeelding, 1700) //bron: scrimba
-                //stap3 wordt selected
-            } else {
-                pElement.textContent = "De perfecte kleur! Versier het koekje voor de finishing touch."
-                stap3.classList.toggle("actief")
-                stap3.disabled = true; 
-                counter = 3
+        audio.play()
+            function veranderAfbeelding() {
+                if (index < afbeeldingen.length) { //bron: behulp van chatGPT
+                    img.src = afbeeldingen[index]
+                    index = index + 1
+                    setTimeout(veranderAfbeelding, 1700) //bron: scrimba
+                    //stap3 wordt selected
+                } else {
+                    pElement.textContent = "De perfecte kleur! Versier het koekje voor de finishing touch."
+                    stap3.classList.toggle("actief")
+                    stap3.disabled = true; 
+                    counter = 3
             }
         }
-    veranderAfbeelding(); 
+        veranderAfbeelding(); 
     } else {
         pElement.textContent = "Vergeet stap 2 niet!"
     }
 }
 
-if (stap3) {
-    stap3.addEventListener("click", derdeStap)
-}
 
 function vierdeStap(){
     if(counter == 3){
@@ -88,7 +78,9 @@ function vierdeStap(){
     }
 }
 
-if (stap4) {
-    stap4.addEventListener("click", vierdeStap);
-}
+
+stap1.addEventListener("click", eersteStap)
+stap2.addEventListener("click", tweedeStap)
+stap3.addEventListener("click", derdeStap)
+stap4.addEventListener("click", vierdeStap)
 
